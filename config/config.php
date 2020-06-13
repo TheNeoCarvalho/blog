@@ -1,4 +1,7 @@
 <?php
+  define('BASE_URL', $_SERVER['DOCUMENT_ROOT'].'/blog');
+  define('BASE_URL_ADMIN', $_SERVER['DOCUMENT_ROOT'].'/blog/admin');
+
  //BANCO
   define('DRIVER', 'mysql');
   define('HOST', 'localhost');

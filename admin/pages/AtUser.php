@@ -1,5 +1,5 @@
 <?php
-    include ('c:/laragon/www/blog/config/database.php');
+    include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     $query = $pdo->prepare("SELECT * FROM usuario WHERE id = :id");
