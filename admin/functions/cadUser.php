@@ -1,5 +1,5 @@
 <?php
-    include ('c:/laragon/www/blog/config/database.php');
+    include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
 
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);

@@ -1,5 +1,5 @@
 <?php
-    include ('c:/laragon/www/blog/config/database.php');
+    include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     $query = $pdo->prepare("SELECT * FROM usuario WHERE id = :id");
@@ -39,8 +39,8 @@
                     <input type="email" name="email" readonly class="form-control"  value="<?=$consulta->email?>" id="exampleInputEmail" placeholder="Digite aqui...">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputSenha">Senha</label>
-                    <input type="password" name="senha" class="form-control" id="exampleInputPassword" placeholder="Digite aqui...">
+                    <label for="exampleInputSenha">Nova Senha</label>
+                    <input type="password" minlength="8" name="senha" class="form-control" id="exampleInputPassword" placeholder="Digite aqui...">
                   </div>
                   <div>
                     <button type="submit" class="btn btn-primary">ENVIAR</button>

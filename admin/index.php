@@ -7,13 +7,6 @@
 
   $page = $_GET['page'];
 
-  // if(!empty($page) || isset($page)){
-  //   $myPage = $page.".php";
-  //   include("pages/".$myPage);
-  // }else{
-  //   include('pages/home.php');
-  // }
-  
   switch ($page) {
     case 'user':
       include('pages/user.php');
