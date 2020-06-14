@@ -1,25 +1,25 @@
 
   <?php
   error_reporting(0);
+  session_start();
+
+  include('../config/database.php');
+
+  if(!$_SESSION['user']){
+    header('location: http://localhost/blog/admin/login.php');
+  }
   
   include('header.php');
   include('sidemenu.php');
 
   $page = $_GET['page'];
 
-  switch ($page) {
-    case 'user':
-      include('pages/user.php');
-      break;
-    case 'cadUser':
-      include('pages/cadUser.php');
-      break; 
-    case 'AtUser':
-      include('pages/AtUser.php');
-      break; 
-    default:
-      include('pages/home.php');
-      break;
+  if(!empty($page) || isset($page)){
+    include('pages/'.$page.'.php');
+    exit;
+  }else{
+    include('pages/home.php');
+    exit;
   }
 
   include('footer.php');

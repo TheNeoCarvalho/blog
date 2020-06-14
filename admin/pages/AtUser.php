@@ -43,7 +43,7 @@
                     <input type="password" minlength="8" name="senha" class="form-control" id="exampleInputPassword" placeholder="Digite aqui...">
                   </div>
                   <div>
-                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
                   </div>
                 </div>
                 </form>

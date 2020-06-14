@@ -25,7 +25,7 @@
                   </thead>
                   <tbody>
                   <?php
-                    include('../config/database.php');
+                    
                     $sql = "SELECT * FROM usuario";
                     $consulta = $pdo->prepare($sql);
                     $consulta->execute();
@@ -42,11 +42,14 @@
                       <td><?= $dado->email?></td>
                       <td><?= date_format($date, 'd/m/Y')?></td>
                       <td>
-                        <a class="btn btn-secondary" href="functions/delUser.php?id=<?= $dado->id ?>">DELETAR</a>
+                        <a class="btn btn-secondary <?= $_SESSION['id'] == $dado->id? 'disabled': ''?>" onclick="return confirm('Deseja realmente deletar?')" href="functions/delUser.php?id=<?= $dado->id ?>">DELETAR</a>
                         <a class="btn btn-info" href="?page=AtUser&id=<?= $dado->id ?>">ATUALIZAR</a>
                       </td>
                     </tr>
+                    
                     <?php } ?>
+                    <?php echo 'Nome: '.$_SESSION['user']?>
+                    
                   </tbody>
                 </table>
 </div>
