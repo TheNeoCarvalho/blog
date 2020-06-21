@@ -4,13 +4,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Usuários cadastrados</h1>
+            <h1 class="m-0 text-dark">Posts</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <a class="btn btn-warning" href="?page=cadUser">
                 <i class="fas fa-plus"></i>
-                  ADICIONAR USUÁRIO
+                  ADICIONAR POST
               </a>
             </ol>
           </div>
@@ -20,30 +20,45 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Data</th>
-                      <th>Ações</th>
+                      <th>TÍTULO</th>
+                      <th>DATA DA PUBLICAÇÃO</th>
+                      <th>PUBLICADO</th>
+                      <th>AÇÕES</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php
                     
-                    $sql = "SELECT * FROM usuario";
+                    $sql = "SELECT * FROM posts";
                     $consulta = $pdo->prepare($sql);
                     $consulta->execute();
 
-                    $dados = $consulta->fetchAll(PDO::FETCH_OBJ);
+                    if($consulta->rowCount() == 0){
+                      echo "<tr>
+                              <td colspan='6' align='center'>Você não possui nenhum post :(</td>
+                            </tr>";
+                    }else{
+                        
+                      $dados = $consulta->fetchAll(PDO::FETCH_OBJ);
 
-                    foreach($dados as $dado) {
-                      $date = date_create($dado -> data);
+                      foreach($dados as $dado) {
+                        $date = date_create($dado->data);
 
                   ?>
                     <tr>
                       <td><?= $dado->id ?></td>
-                      <td><?= $dado->nome?></td>
-                      <td><?= $dado->email?></td>
+                      <td><?= $dado->titulo?></td>
                       <td><?= date_format($date, 'd/m/Y')?></td>
+                      <td>
+                        <?php
+                        if($dado->publicado === "S"){
+                          echo '<i class="fas fa-check"></i>';
+                        }else{
+                          echo '<i class="fas fa-times"></i>';
+                        }
+                        ?>
+                  
+                      </td>
                       <td>
                         <a class="btn btn-secondary <?= $_SESSION['id'] == $dado->id? 'disabled': ''?>" onclick="return confirm('Deseja realmente deletar?')" href="functions/delUser.php?id=<?= $dado->id ?>">
                           <i class="far fa-trash-alt"></i> 
@@ -56,7 +71,10 @@
                       </td>
                     </tr>
                     
-                    <?php } ?>
+                    <?php 
+                      }
+                    } 
+                    ?>
                     <?php echo 'Nome: '.$_SESSION['user']?>
                     
                   </tbody>

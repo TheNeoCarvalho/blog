@@ -14,12 +14,17 @@
 
   $page = $_GET['page'];
 
-  if(!empty($page) || isset($page)){
-    include('pages/'.$page.'.php');
-    exit;
+  if(!file_exists("/pages/".$page.".php")){
+    if(!empty($page) || isset($page)){
+      include('pages/'.$page.'.php');
+      exit;
+    }else{
+      include('pages/home.php');
+      exit;
+    }
   }else{
-    include('pages/home.php');
-    exit;
+    include('pages/404.php');
+      exit;
   }
 
   include('footer.php');

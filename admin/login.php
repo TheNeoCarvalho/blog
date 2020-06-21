@@ -14,9 +14,8 @@
                 <?php 
                     session_start();
                     if(isset($_SESSION['error'])){
-                        echo "<p class='alert alert-warning'>".$_SESSION['error']."</p>";
-                    } else{
-                        
+                        echo "<p class='alert alert-warning text-center'>".$_SESSION['error']."</p>";
+                        session_unset();
                     }
                 ?>
                 <input name="email" type="text" class="form-control" placeholder="Email" required autofocus>
