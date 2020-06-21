@@ -24,8 +24,11 @@
             $_SESSION['user'] = $usuario->nome;
             $_SESSION['id'] = $usuario->id;
             header('location: http://localhost/blog/admin/');
+            unlink($_SESSION['error']);
         }else{
-            echo 'Deu ruim';
+  
+            $_SESSION['error'] = 'Usuário e/ou Senha está errado!';
+            header('location: http://localhost/blog/admin/login.php');
         }
     }
 
