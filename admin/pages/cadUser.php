@@ -10,9 +10,6 @@
         <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Novo Usuário</h3>
-              </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form action="http://localhost/blog/admin/functions/cadUser.php" method="POST">

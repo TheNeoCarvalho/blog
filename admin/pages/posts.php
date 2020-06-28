@@ -8,7 +8,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a class="btn btn-warning" href="?page=cadUser">
+              <a class="btn btn-warning" href="?page=cadPosts">
                 <i class="fas fa-plus"></i>
                   ADICIONAR POST
               </a>
@@ -18,7 +18,7 @@
         <div class="card-body table-responsive p-0">
         <table class="table table-hover text-nowrap">
                   <thead>
-                    <tr>
+                    <tr  class="text-center">
                       <th>ID</th>
                       <th>TÍTULO</th>
                       <th>DATA DA PUBLICAÇÃO</th>
@@ -45,7 +45,7 @@
                         $date = date_create($dado->data);
 
                   ?>
-                    <tr>
+                    <tr class="text-center">
                       <td><?= $dado->id ?></td>
                       <td><?= $dado->titulo?></td>
                       <td><?= date_format($date, 'd/m/Y')?></td>
@@ -60,11 +60,11 @@
                   
                       </td>
                       <td>
-                        <a class="btn btn-secondary <?= $_SESSION['id'] == $dado->id? 'disabled': ''?>" onclick="return confirm('Deseja realmente deletar?')" href="functions/delUser.php?id=<?= $dado->id ?>">
+                        <a class="btn btn-secondary" onclick="return confirm('Deseja realmente deletar?')" href="functions/delPost.php?id=<?= $dado->id ?>">
                           <i class="far fa-trash-alt"></i> 
                             DELETAR
                         </a>
-                        <a class="btn btn-info" href="?page=AtUser&id=<?= $dado->id ?>">
+                        <a class="btn btn-info" href="?page=atPosts&id=<?= $dado->id ?>">
                           <i class="far fa-edit"></i>
                             ATUALIZAR
                           </a>
@@ -75,8 +75,6 @@
                       }
                     } 
                     ?>
-                    <?php echo 'Nome: '.$_SESSION['user']?>
-                    
                   </tbody>
                 </table>
 </div>

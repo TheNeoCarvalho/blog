@@ -3,9 +3,9 @@
 
     $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
-    $query = $pdo->prepare("DELETE FROM usuario WHERE id = :id");
+    $query = $pdo->prepare("DELETE FROM posts WHERE id = :id");
     $query->bindValue(':id', $id);
 
     $query->execute();
-    header('location: http://localhost/blog/admin/index.php?page=user');
+    header('location: http://localhost/blog/admin/index.php?page=posts');
 ?>

@@ -20,10 +20,10 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Data</th>
-                      <th>Ações</th>
+                      <th>NOME</th>
+                      <th>EMAIL</th>
+                      <th>DATA</th>
+                      <th>AÇÕES</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -36,7 +36,7 @@
                     $dados = $consulta->fetchAll(PDO::FETCH_OBJ);
 
                     foreach($dados as $dado) {
-                      $date = date_create($dado -> data);
+                      $date = date_create($dado->data);
 
                   ?>
                     <tr>
@@ -57,8 +57,6 @@
                     </tr>
                     
                     <?php } ?>
-                    <?php echo 'Nome: '.$_SESSION['user']?>
-                    
                   </tbody>
                 </table>
 </div>

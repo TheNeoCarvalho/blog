@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
 
     $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
@@ -57,6 +57,7 @@
         }  
         
       }
+      $_SESSION['user'] = $nome;
       header('location: http://localhost/blog/admin/index.php?page=profile');
    }else{
     if(empty($senha)){
@@ -88,6 +89,7 @@
         }  
   
       }
+      $_SESSION['user'] = $nome;
       header('location: http://localhost/blog/admin/index.php?page=user');
    }
 
