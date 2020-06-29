@@ -2,7 +2,8 @@
     include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
 
         $titulo = filter_input(INPUT_POST, "titulo", FILTER_SANITIZE_SPECIAL_CHARS);
-        $conteudo = filter_input(INPUT_POST, "conteudo", FILTER_SANITIZE_SPECIAL_CHARS);
+        $conteudo = filter_input(INPUT_POST, "conteudo"
+      );
         $publicado = filter_input(INPUT_POST, "pub", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $data = Date('Y/m/d');

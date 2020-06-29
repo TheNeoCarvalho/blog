@@ -23,6 +23,7 @@
                       <th>TÍTULO</th>
                       <th>DATA DA PUBLICAÇÃO</th>
                       <th>PUBLICADO</th>
+                      <th>VIEWS</th>
                       <th>AÇÕES</th>
                     </tr>
                   </thead>
@@ -57,7 +58,7 @@
                           echo '<i class="fas fa-times"></i>';
                         }
                         ?>
-                  
+                      <td><?= $dado->views?></td>
                       </td>
                       <td>
                         <a class="btn btn-secondary" onclick="return confirm('Deseja realmente deletar?')" href="functions/delPost.php?id=<?= $dado->id ?>">
