@@ -1,18 +1,22 @@
 <?php
     include ($_SERVER['DOCUMENT_ROOT'].'/blog/config/database.php');
     $id = $_SESSION['id'];
-
+    //User Query
     $query = $pdo->prepare("SELECT * FROM usuario WHERE id = :id");
     $query->bindValue(':id', $id);
-
     $query->execute();
 
     $consulta = $query->fetch(PDO::FETCH_OBJ);
 
+    // //Social Query
+    // $social = $pdo->query("SELECT * FROM social");
+    // $querySocial->execute();
+
+    // $consultaSocial = $querySocial->fetch(PDO::FETCH_OBJ);
+
 ?>
 <div class="content-wrapper">
-
-<div class="content-header">
+  <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -44,7 +48,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" name="senha" class="form-control id="exampleInputPassword1" placeholder="Senha" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                    <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Imagem de Perfil</label>
@@ -68,6 +72,46 @@
             </div>
             <!-- /.card -->
         </div>
-        </div>
+  </div>
 
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Redes Sociais</h1>
+          </div>
+        </div>
+        <form action="http://localhost/blog/admin/functions/addSocial.php" method="POST">
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="exampleInputPassword1">https://facebook.com/</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="face" class="form-control" id="exampleInputPassword1" placeholder="seuUsuario" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-4">
+                <label for="exampleInputPassword1">https://github.com/</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="github" class="form-control" id="exampleInputPassword1" placeholder="seuUsuario" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group">
+          <div class="col-md-4">
+            <label for="exampleInputPassword1">https://twitter.com/</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="twitter" class="form-control" id="exampleInputPassword1" placeholder="seuUsuario" autocomplete="off">
+          </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+  </div>
+  </div>
 </div>
